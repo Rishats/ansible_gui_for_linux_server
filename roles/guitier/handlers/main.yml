@@ -1,0 +1,9 @@
+# file: roles/guitier/handlers/main.yml
+- name: Start slim service
+  service: name=slim state=started
+
+- name: Stop slim service
+  service: name=slim state=stopped
+
+- name: Restart slim service
+  service: name=slim state=restarted

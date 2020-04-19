@@ -1,0 +1,6 @@
+*.retry
+.vagrant
+.DS_Store
+env
+.vscode
+ubuntu-bionic-18.04-cloudimg-console.log

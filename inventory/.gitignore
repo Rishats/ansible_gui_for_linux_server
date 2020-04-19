@@ -1,0 +1,4 @@
+*
+!.gitignore
+!laravel_server
+!testing

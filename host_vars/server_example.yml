@@ -1,0 +1,62 @@
+# Let's Encrypt settings
+enable_ssl: false
+letsencrypt_email: rihasultanov@gmail.com
+
+# PHP Extensions
+php_extensions:
+    - php7.3
+    - php7.3-zip
+    - php7.3-pdo
+    - php7.3-mbstring
+    - php7.3-tokenizer
+    - php7.3-xml
+    - php7.3-mysqlnd
+    - php7.3-opcache
+    - php7.3-bcmath
+    - php7.3-json
+    - php7.3-gd
+    - php7.3-redis
+    
+# Extra PHP packages
+php_extra_packages:
+    - php7.3-soap
+    - php7.3-intl
+    - php7.3-curl
+
+# PHP memory limit
+php_memory_limit: "512M"
+
+# A list of virtual hosts.
+virtualhosts:
+  project:
+    backend_servernames:
+      - backend.laravel.test
+    frontend_servernames:
+      - new.laravel.test
+    backend_servernames_develop:
+      - test-backend.laravel.test
+    frontend_servernames_develop:
+      - test.laravel.test
+    frontend_ssr: true
+    run_queue_worker: true
+    have_develop_stage: true
+    queue_name:
+    - default
+    has_scheduled_jobs: true
+
+# MySQL
+mysql_root_password: pwd
+mysql_databases:
+  - name: laravel_db
+    encoding: utf8
+    collation: utf8_general_ci
+mysql_users:
+  - name: laravel_db_user
+    host: "%"
+    password: pwd
+    priv: "laravel_db.*:ALL"
+
+# User for VPS
+system_user:
+  user_login: deployer
+  user_password: pwd

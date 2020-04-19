@@ -1,0 +1,26 @@
+# file: roles/guitier/tasks/gui.yml
+- name: Install GUI XFCE For Ubuntu Server.
+  apt: 
+    pkg: "xfce4"
+    state: present
+    update_cache: yes
+  tags: gui
+  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian')
+
+- name: Install GUI Slim For Ubuntu Server.
+  apt: 
+    pkg: "slim"
+    state: present
+    update_cache: yes
+  tags: gui
+  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian')
+  notify:
+    - Start slim
+
+- name: Make sure slim is running and is started on boot
+  tags: gui
+  service: 
+    name: slim
+    state: started 
+    enabled: yes
+  when: (ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian')
